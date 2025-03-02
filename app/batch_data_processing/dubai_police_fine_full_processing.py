@@ -5,10 +5,10 @@ class DubaiFineFullProcessing:
     def __init__(self, sheet_path_name):
         # Initialize the class with the path to the Excel sheet
         self.data_path      = sheet_path_name
-        self.excel_file     = pd.ExcelFile()
-        self.loaded_data    = pd.DataFrame()
+        self.excel_file     = pd.ExcelFile
+        self.loaded_data    = pd.DataFrame
         self.sheet_name     = str
-        self.df_error       = pd.DataFrame()
+        self.df_error       = pd.DataFrame
         self.__sheet        = 'fine'
 
         # Check if the provided path exists
@@ -21,6 +21,10 @@ class DubaiFineFullProcessing:
 
         # Get the sheet name that contains 'salik'
         self.__get_sheet_name(self.excel_file)
+
+        self.loaded_data = self.excel_file.parse(self.sheet_name)
+        print("Loaded data: ", self.loaded_data.head(3))
+
 
     def __get_sheet_name(self, excel_file):
         # Identify the sheet name that contains 'salik'
